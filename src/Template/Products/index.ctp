@@ -43,6 +43,7 @@
                     <?= $this->Html->link(__('View'), ['action' => 'view', $product->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
+                    <!-- <?= $this->Html->link(__('Add to Wishlist'), ['controller' => 'Wishlists', 'action' => 'add']) ?> -->
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -12,6 +12,7 @@ use App\Controller\AppController;
  */
 class ProductsController extends AppController
 {
+    
 
     /**
      * Index method
@@ -113,4 +114,6 @@ class ProductsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    
 }

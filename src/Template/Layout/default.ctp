@@ -26,13 +26,18 @@
                 <li><?= $this->Html->link('Products', ['controller' => 'products']) ?></li>
                 <li><?= $this->Html->link('Developers', ['controller' => 'developers']) ?></li>
                 <li><?= $this->Html->link('Users', ['controller' => 'users']) ?></li>
-				<li><?= $this->HTML->Link('Files', ['controller' => 'files']) ?></li>
+				<li><?= $this->Html->link('Files', ['controller' => 'files']) ?></li>
             </ul>
             <ul class="right">
-                
+            
+                <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US']) ?></li>
+                <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA']) ?></li>
+                <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE']) ?></li>
+            
                 <?php if($loggedUser !== null) { ?>
                     
                     <li><?= $this->Html->link('Logged in as ' . h($loggedUser['username']), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']]) ?></li>
+                    <li><?= $this->HTML->Link('Wishlist', ['controller' => 'wishlists']) ?></li>
                     <li id="Logout"><?= $this->Html->link('Logout', ['controller'=>'users', 'action' => 'logout']); ?></li>
                     
                 <?php } else { ?>

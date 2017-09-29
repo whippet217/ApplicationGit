@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Routing\Router;
+use Cake\I18n\I18n;
 
 /**
  * Application Controller
@@ -28,7 +29,12 @@ use Cake\Routing\Router;
  */
 class AppController extends Controller
 {
-
+    public function changeLang($lang = 'en_US') {
+        I18n::locale($lang);
+        $this->request->session()->write('Config.language', $lang);
+        return $this->redirect($this->request->referer());
+    }
+    
     /**
      * Initialization hook method.
      *
@@ -62,6 +68,8 @@ class AppController extends Controller
         $this->set(compact('loggedUser'));
         
         $this->set('appRoot', Router::url('/', true));
+        
+        I18n::locale($this->request->session()->read('Config.language'));
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -91,7 +99,7 @@ class AppController extends Controller
     
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        $this->Auth->allow(['index', 'view', 'display', 'changeLang']);
     }
     
     public function isAuthorized($user) {

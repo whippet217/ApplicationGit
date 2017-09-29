@@ -57,9 +57,9 @@ class WishlistsController extends AppController
         if ($this->request->is('post')) {
             $wishlist = $this->Wishlists->patchEntity($wishlist, $this->request->getData());
             if ($this->Wishlists->save($wishlist)) {
-                $this->Flash->success(__('The wishlist has been saved.'));
+                $this->Flash->success(__('The product as been added to your wishlist'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect($this->referer());
             }
             $this->Flash->error(__('The wishlist could not be saved. Please, try again.'));
         }
