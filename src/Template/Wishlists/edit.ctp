@@ -13,6 +13,10 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Wishlists'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="wishlists form large-9 medium-8 columns content">
@@ -20,8 +24,8 @@
     <fieldset>
         <legend><?= __('Edit Wishlist') ?></legend>
         <?php
-            echo $this->Form->control('idUser');
-            echo $this->Form->control('idProduct');
+            echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('product_id', ['options' => $products]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

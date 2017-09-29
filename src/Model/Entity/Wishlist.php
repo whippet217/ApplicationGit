@@ -7,10 +7,13 @@ use Cake\ORM\Entity;
  * Wishlist Entity
  *
  * @property int $id
- * @property int $idUser
- * @property int $idProduct
+ * @property int $user_id
+ * @property int $product_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Product $product
  */
 class Wishlist extends Entity
 {
@@ -25,9 +28,11 @@ class Wishlist extends Entity
      * @var array
      */
     protected $_accessible = [
-        'idUser' => true,
-        'idProduct' => true,
+        'user_id' => true,
+        'product_id' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
+        'user' => true,
+        'product' => true
     ];
 }

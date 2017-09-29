@@ -16,7 +16,10 @@ class WishlistsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.wishlists'
+        'app.wishlists',
+        'app.users',
+        'app.products',
+        'app.developers'
     ];
 
     /**

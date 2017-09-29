@@ -20,6 +20,9 @@ class WishlistsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users', 'Products']
+        ];
         $wishlists = $this->paginate($this->Wishlists);
 
         $this->set(compact('wishlists'));
@@ -36,7 +39,7 @@ class WishlistsController extends AppController
     public function view($id = null)
     {
         $wishlist = $this->Wishlists->get($id, [
-            'contain' => []
+            'contain' => ['Users', 'Products']
         ]);
 
         $this->set('wishlist', $wishlist);
@@ -60,7 +63,9 @@ class WishlistsController extends AppController
             }
             $this->Flash->error(__('The wishlist could not be saved. Please, try again.'));
         }
-        $this->set(compact('wishlist'));
+        $users = $this->Wishlists->Users->find('list', ['limit' => 200]);
+        $products = $this->Wishlists->Products->find('list', ['limit' => 200]);
+        $this->set(compact('wishlist', 'users', 'products'));
         $this->set('_serialize', ['wishlist']);
     }
 
@@ -85,7 +90,9 @@ class WishlistsController extends AppController
             }
             $this->Flash->error(__('The wishlist could not be saved. Please, try again.'));
         }
-        $this->set(compact('wishlist'));
+        $users = $this->Wishlists->Users->find('list', ['limit' => 200]);
+        $products = $this->Wishlists->Products->find('list', ['limit' => 200]);
+        $this->set(compact('wishlist', 'users', 'products'));
         $this->set('_serialize', ['wishlist']);
     }
 
@@ -107,23 +114,5 @@ class WishlistsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-    
-    public function isAuthorized($user)
-    {
-        // All registered users can add articles
-        if ($this->request->getParam('action') === 'add') {
-            return true;
-        }
-
-        // The owner of an article can edit and delete it
-        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
-            $articleId = (int)$this->request->getParam('pass.0');
-            if ($this->Wishlists->isOwnedBy($articleId, $user['id'])) {
-                return true;
-            }
-        }
-
-        return parent::isAuthorized($user);
     }
 }

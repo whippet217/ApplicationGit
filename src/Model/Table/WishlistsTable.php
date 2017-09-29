@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Wishlists Model
  *
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\ProductsTable|\Cake\ORM\Association\BelongsTo $Products
+ *
  * @method \App\Model\Entity\Wishlist get($primaryKey, $options = [])
  * @method \App\Model\Entity\Wishlist newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Wishlist[] newEntities(array $data, array $options = [])
@@ -37,6 +40,15 @@ class WishlistsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Products', [
+            'foreignKey' => 'product_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -51,20 +63,21 @@ class WishlistsTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->integer('idUser')
-            ->requirePresence('idUser', 'create')
-            ->notEmpty('idUser');
-
-        $validator
-            ->integer('idProduct')
-            ->requirePresence('idProduct', 'create')
-            ->notEmpty('idProduct');
-
         return $validator;
     }
-    
-    public function isOwnedBy($wishlistId, $userId) {
-        return $this->exists(['id' => $wishlistId, 'user_id' => $userId]);
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['product_id'], 'Products'));
+
+        return $rules;
     }
 }

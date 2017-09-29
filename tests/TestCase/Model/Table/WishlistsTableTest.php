@@ -24,7 +24,10 @@ class WishlistsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.wishlists'
+        'app.wishlists',
+        'app.users',
+        'app.products',
+        'app.developers'
     ];
 
     /**
@@ -67,6 +70,16 @@ class WishlistsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

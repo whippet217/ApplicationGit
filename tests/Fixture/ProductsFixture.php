@@ -21,15 +21,16 @@ class ProductsFixture extends TestFixture
         'name' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'console' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'used' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'idDeveloper' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'developer_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'description' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
-            'idDev_Constraint' => ['type' => 'index', 'columns' => ['idDeveloper'], 'length' => []],
+            'idDev_Constraint' => ['type' => 'index', 'columns' => ['developer_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'idDev_Constraint' => ['type' => 'foreign', 'columns' => ['idDeveloper'], 'references' => ['developers', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'idDev_Constraint' => ['type' => 'foreign', 'columns' => ['developer_id'], 'references' => ['developers', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -49,9 +50,10 @@ class ProductsFixture extends TestFixture
             'name' => 'Lorem ipsum dolor sit amet',
             'console' => 'Lorem ipsum dolor sit amet',
             'used' => 1,
-            'idDeveloper' => 1,
-            'created' => '2017-09-29 00:59:12',
-            'modified' => '2017-09-29 00:59:12'
+            'developer_id' => 1,
+            'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+            'created' => '2017-09-29 02:34:29',
+            'modified' => '2017-09-29 02:34:29'
         ],
     ];
 }

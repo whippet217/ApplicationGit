@@ -10,9 +10,13 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $console
  * @property bool $used
- * @property int $idDeveloper
+ * @property int $developer_id
+ * @property string $description
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Developer $developer
+ * @property \App\Model\Entity\Wishlist[] $wishlists
  */
 class Product extends Entity
 {
@@ -30,8 +34,11 @@ class Product extends Entity
         'name' => true,
         'console' => true,
         'used' => true,
-        'idDeveloper' => true,
+        'developer_id' => true,
+        'description' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
+        'developer' => true,
+        'wishlists' => true
     ];
 }

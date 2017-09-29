@@ -42,8 +42,8 @@ class DevelopersFixture extends TestFixture
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
             'email' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-09-29 00:59:04',
-            'modified' => '2017-09-29 00:59:04'
+            'created' => '2017-09-29 02:35:11',
+            'modified' => '2017-09-29 02:35:11'
         ],
     ];
 }

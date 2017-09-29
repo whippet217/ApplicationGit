@@ -8,6 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Wishlist'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="wishlists index large-9 medium-8 columns content">
@@ -16,8 +20,8 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('idUser') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('idProduct') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('product_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -27,8 +31,8 @@
             <?php foreach ($wishlists as $wishlist): ?>
             <tr>
                 <td><?= $this->Number->format($wishlist->id) ?></td>
-                <td><?= $this->Number->format($wishlist->idUser) ?></td>
-                <td><?= $this->Number->format($wishlist->idProduct) ?></td>
+                <td><?= $wishlist->has('user') ? $this->Html->link($wishlist->user->id, ['controller' => 'Users', 'action' => 'view', $wishlist->user->id]) : '' ?></td>
+                <td><?= $wishlist->has('product') ? $this->Html->link($wishlist->product->name, ['controller' => 'Products', 'action' => 'view', $wishlist->product->id]) : '' ?></td>
                 <td><?= h($wishlist->created) ?></td>
                 <td><?= h($wishlist->modified) ?></td>
                 <td class="actions">

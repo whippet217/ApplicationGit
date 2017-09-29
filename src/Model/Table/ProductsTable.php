@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Products Model
  *
+ * @property \App\Model\Table\DevelopersTable|\Cake\ORM\Association\BelongsTo $Developers
+ * @property \App\Model\Table\WishlistsTable|\Cake\ORM\Association\HasMany $Wishlists
+ *
  * @method \App\Model\Entity\Product get($primaryKey, $options = [])
  * @method \App\Model\Entity\Product newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Product[] newEntities(array $data, array $options = [])
@@ -37,6 +40,14 @@ class ProductsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Developers', [
+            'foreignKey' => 'developer_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Wishlists', [
+            'foreignKey' => 'product_id'
+        ]);
     }
 
     /**
@@ -66,10 +77,23 @@ class ProductsTable extends Table
             ->allowEmpty('used');
 
         $validator
-            ->integer('idDeveloper')
-            ->requirePresence('idDeveloper', 'create')
-            ->notEmpty('idDeveloper');
+            ->scalar('description')
+            ->allowEmpty('description');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['developer_id'], 'Developers'));
+
+        return $rules;
     }
 }

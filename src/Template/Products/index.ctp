@@ -8,6 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Product'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Developers'), ['controller' => 'Developers', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Developer'), ['controller' => 'Developers', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Wishlists'), ['controller' => 'Wishlists', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Wishlist'), ['controller' => 'Wishlists', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="products index large-9 medium-8 columns content">
@@ -19,7 +23,7 @@
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('console') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('used') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('idDeveloper') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('developer_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -32,7 +36,7 @@
                 <td><?= h($product->name) ?></td>
                 <td><?= h($product->console) ?></td>
                 <td><?= h($product->used) ?></td>
-                <td><?= $this->Number->format($product->idDeveloper) ?></td>
+                <td><?= $product->has('developer') ? $this->Html->link($product->developer->name, ['controller' => 'Developers', 'action' => 'view', $product->developer->id]) : '' ?></td>
                 <td><?= h($product->created) ?></td>
                 <td><?= h($product->modified) ?></td>
                 <td class="actions">

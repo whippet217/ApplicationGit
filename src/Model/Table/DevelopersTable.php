@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Developers Model
  *
+ * @property |\Cake\ORM\Association\HasMany $Products
+ *
  * @method \App\Model\Entity\Developer get($primaryKey, $options = [])
  * @method \App\Model\Entity\Developer newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Developer[] newEntities(array $data, array $options = [])
@@ -37,6 +39,10 @@ class DevelopersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Products', [
+            'foreignKey' => 'developer_id'
+        ]);
     }
 
     /**
