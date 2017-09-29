@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Routing\Router;
 
 /**
  * Application Controller
@@ -43,6 +44,24 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+                    'authorize' => ['Controller'],
+                    'loginRedirect' => [
+                        'controller' => 'Pages',
+                        'action' => 'index'
+                    ],
+                    'logoutRedirect' => [
+                        'controller' => 'Pages',
+                        'action' => 'display',
+                        'home'
+                    ]
+                ]);
+        
+        
+        $loggedUser = $this->Auth->user();
+        $this->set(compact('loggedUser'));
+        
+        $this->set('appRoot', Router::url('/', true));
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -68,5 +87,19 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index', 'view', 'display']);
+    }
+    
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if ($user['isAdmin'] === true) {
+            return true;
+        }
+        // Default deny
+        return false;
     }
 }
