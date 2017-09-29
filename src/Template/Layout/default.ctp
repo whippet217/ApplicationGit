@@ -26,8 +26,7 @@
                 <li><?= $this->Html->link('Products', ['controller' => 'products']) ?></li>
                 <li><?= $this->Html->link('Developers', ['controller' => 'developers']) ?></li>
                 <li><?= $this->Html->link('Users', ['controller' => 'users']) ?></li>
-                <li><?= $this->Html->link('About Us', ['controller' => 'about']) ?></li>
-                <li><?= $this->Html->link('Contact Us', ['controller' => 'contact']) ?></li>
+				<li><?= $this->HTML->Link('Files', ['controller' => 'files']) ?></li>
             </ul>
             <ul class="right">
                 

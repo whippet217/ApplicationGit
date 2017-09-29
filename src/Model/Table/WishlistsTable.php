@@ -80,4 +80,9 @@ class WishlistsTable extends Table
 
         return $rules;
     }
+	
+	public function isOwnedBy($wishlistId, $userId)
+	{
+        return $this->exists(['id' => $wishlistId, 'user_id' => $userId]);
+	}
 }

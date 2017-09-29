@@ -115,4 +115,22 @@ class WishlistsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+	
+	public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
+
+        // The owner of an article can edit and delete it
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $wishlistId = (int)$this->request->getParam('pass.0');
+            if ($this->Wishlists->isOwnedBy($wishlistId, $user['id'])) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
 }

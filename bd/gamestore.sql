@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 29 sep. 2017 à 02:54
+-- Généré le :  ven. 29 sep. 2017 à 20:27
 -- Version du serveur :  5.7.17
--- Version de PHP :  7.1.3
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,6 +39,36 @@ CREATE TABLE `developers` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Déchargement des données de la table `developers`
+--
+
+INSERT INTO `developers` (`id`, `name`, `email`, `created`, `modified`) VALUES
+(1, 'Bethesda', 'Bethesda@gmail.com', '2017-09-29 18:12:22', '2017-09-29 18:12:32');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `files`
+--
+
+DROP TABLE IF EXISTS `files`;
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `files`
+--
+
+INSERT INTO `files` (`id`, `name`, `path`, `created`, `modified`, `status`) VALUES
+(1, 'Koala.jpg', 'Files/', '2017-09-29 18:22:51', '2017-09-29 18:22:51', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -51,10 +81,37 @@ CREATE TABLE `products` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `console` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `used` tinyint(1) DEFAULT NULL,
-  `idDeveloper` int(11) NOT NULL,
+  `developer_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `console`, `used`, `developer_id`, `created`, `modified`) VALUES
+(1, 'Test', 'PC', 0, 1, '2017-09-29 18:12:57', '2017-09-29 18:12:57');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `products_files`
+--
+
+DROP TABLE IF EXISTS `products_files`;
+CREATE TABLE `products_files` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `file_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `products_files`
+--
+
+INSERT INTO `products_files` (`id`, `product_id`, `file_id`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -73,6 +130,14 @@ CREATE TABLE `users` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `isAdmin`, `username`, `password`, `email`, `created`, `modified`) VALUES
+(1, 1, 'admin', '$2y$10$OGVKt6z4SJnLQJUCTHDbueyg7E3o0J2kkpQy5.AddVZgP4dBLefMO', 'admin@gmail.com', '2017-09-29 18:05:08', '2017-09-29 18:05:08'),
+(2, 0, 'dofus_master', '$2y$10$3QUbJzlhuET6tadYMGxmFezmbmDNbVyYpav0ViNqOgYDyVhkIDsSO', 'dofus@gmail.com', '2017-09-29 18:05:46', '2017-09-29 18:05:46');
+
 -- --------------------------------------------------------
 
 --
@@ -82,8 +147,8 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `wishlists`;
 CREATE TABLE `wishlists` (
   `id` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `idProduct` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -99,11 +164,25 @@ ALTER TABLE `developers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idDev_Constraint` (`idDeveloper`);
+  ADD KEY `developer_id` (`developer_id`);
+
+--
+-- Index pour la table `products_files`
+--
+ALTER TABLE `products_files`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `file_id` (`file_id`);
 
 --
 -- Index pour la table `users`
@@ -116,8 +195,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `wishlists`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idUsers` (`idUser`),
-  ADD KEY `idProduct` (`idProduct`);
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -127,17 +206,27 @@ ALTER TABLE `wishlists`
 -- AUTO_INCREMENT pour la table `developers`
 --
 ALTER TABLE `developers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `products_files`
+--
+ALTER TABLE `products_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `wishlists`
 --
@@ -151,14 +240,21 @@ ALTER TABLE `wishlists`
 -- Contraintes pour la table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `idDev_Constraint` FOREIGN KEY (`idDeveloper`) REFERENCES `developers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`developer_id`) REFERENCES `developers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `products_files`
+--
+ALTER TABLE `products_files`
+  ADD CONSTRAINT `products_files_ibfk_1` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_files_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `wishlists`
 --
 ALTER TABLE `wishlists`
-  ADD CONSTRAINT `wishlists_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `wishlists_ibfk_2` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `wishlists_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wishlists_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
