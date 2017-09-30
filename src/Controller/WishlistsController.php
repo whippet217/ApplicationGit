@@ -56,6 +56,7 @@ class WishlistsController extends AppController
         $wishlist = $this->Wishlists->newEntity();
         if ($this->request->is('post')) {
             $wishlist = $this->Wishlists->patchEntity($wishlist, $this->request->getData());
+            $wishlist->user_id = $this->Auth->user('id');
             if ($this->Wishlists->save($wishlist)) {
                 $this->Flash->success(__('The product as been added to your wishlist'));
 

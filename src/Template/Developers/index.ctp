@@ -5,10 +5,18 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Developer'), ['action' => 'add']) ?></li>
-    </ul>
+    
+        <ul class="side-nav">
+            <li class="heading"><?= __('Actions') ?></li>
+            
+            <?php if ($loggedUser['isAdmin']): ?>
+                <li><?= $this->Html->link(__('New Developer'), ['action' => 'add']) ?></li>
+            <?php endif; ?>
+            
+            <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?> </li>
+        </ul>
+    
+    
 </nav>
 <div class="developers index large-9 medium-8 columns content">
     <h3><?= __('Developers') ?></h3>
@@ -33,8 +41,10 @@
                 <td><?= h($developer->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $developer->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $developer->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $developer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $developer->id)]) ?>
+                    <?php if ($loggedUser['isAdmin']): ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $developer->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $developer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $developer->id)]) ?>
+                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

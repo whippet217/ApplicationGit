@@ -22,11 +22,14 @@
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><a href="<?= $appRoot ?>">Home</a></li>
-                <li><?= $this->Html->link('Products', ['controller' => 'products']) ?></li>
-                <li><?= $this->Html->link('Developers', ['controller' => 'developers']) ?></li>
-                <li><?= $this->Html->link('Users', ['controller' => 'users']) ?></li>
-				<li><?= $this->Html->link('Files', ['controller' => 'files']) ?></li>
+                <li><a href="<?= $appRoot ?>"><?= __('Home') ?></a></li>
+                <li><?= $this->Html->link(__('Products'), ['controller' => 'products']) ?></li>
+                <li><?= $this->Html->link(__('Developers'), ['controller' => 'developers']) ?></li>
+                <li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>
+                <li><?= $this->Html->link(__('Reviews'), ['controller' => 'reviews']) ?></li>
+                <?php if($loggedUser['isAdmin']) { ?>
+				<li><?= $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
+                <?php } ?>
             </ul>
             <ul class="right">
             

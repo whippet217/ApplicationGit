@@ -7,10 +7,12 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
+        <li><?php if($this->request->session()->read('Auth.User.isAdmin') == 1 || $this->request->session()->read('Auth.User.id') == $this->request->getParam('pass.0')) echo $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]); ?> </li>
+        
+        <!-- <li><?php if($this->request->session()->read('Auth.User.isAdmin') == 1 || $this->request->session()->read('Auth.User.id') == $this->request->getParam('pass.0')) echo $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]); ?> </li> -->
+        
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
+        <!-- <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li> -->
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">

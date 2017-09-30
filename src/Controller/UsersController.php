@@ -135,4 +135,17 @@ class UsersController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
+    
+    public function isAuthorized($user){
+        
+        // The owner of an account can edit and delete it
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
 }

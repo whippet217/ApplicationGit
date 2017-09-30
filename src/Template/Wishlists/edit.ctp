@@ -24,7 +24,7 @@
     <fieldset>
         <legend><?= __('Edit Wishlist') ?></legend>
         <?php
-            echo $this->Form->control('user_id', ['options' => $users]);
+            //echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('product_id', ['options' => $products]);
         ?>
     </fieldset>

@@ -5,13 +5,21 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Developer'), ['action' => 'edit', $developer->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Developer'), ['action' => 'delete', $developer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $developer->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Developers'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Developer'), ['action' => 'add']) ?> </li>
-    </ul>
+    
+        <ul class="side-nav">
+            
+            <li class="heading"><?= __('Actions') ?></li>
+            
+                <?php if ($loggedUser['isAdmin']): ?>
+                <li><?= $this->Html->link(__('Edit Developer'), ['action' => 'edit', $developer->id]) ?> </li>
+                <li><?= $this->Form->postLink(__('Delete Developer'), ['action' => 'delete', $developer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $developer->id)]) ?> </li>
+                <li><?= $this->Html->link(__('New Developer'), ['action' => 'add']) ?> </li>
+                <?php endif; ?>
+                
+            <li><?= $this->Html->link(__('List Developers'), ['action' => 'index']) ?> </li>
+        </ul>
+    
+    
 </nav>
 <div class="developers view large-9 medium-8 columns content">
     <h3><?= h($developer->name) ?></h3>

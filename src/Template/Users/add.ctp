@@ -14,7 +14,7 @@
     <fieldset>
         <legend><?= __('Add User') ?></legend>
         <?php
-            echo $this->Form->control('isAdmin');
+            if ($loggedUser['isAdmin']) echo $this->Form->control('isAdmin');
             echo $this->Form->control('username');
             echo $this->Form->control('password');
             echo $this->Form->control('email');

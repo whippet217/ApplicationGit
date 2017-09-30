@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: TP_Application\n"
+"Project-Id-Version: what\n"
 "Language: fr-ca\n"
 
 #: Controller/DevelopersController.php:57;82
@@ -51,21 +51,37 @@ msgstr "Le fichier a été supprimé."
 msgid "The file could not be deleted. Please, try again."
 msgstr "Le fichier n'a pas pu être supprimé. Veuillez réessayer."
 
-#: Controller/ProductsController.php:60;86
+#: Controller/ProductsController.php:61;87
 msgid "The product has been saved."
 msgstr "Le produit a été enregistré."
 
-#: Controller/ProductsController.php:64;90
+#: Controller/ProductsController.php:65;91
 msgid "The product could not be saved. Please, try again."
 msgstr "Le produit n'a pas pu être enregistré. Veuillez réessayer."
 
-#: Controller/ProductsController.php:109
+#: Controller/ProductsController.php:110
 msgid "The product has been deleted."
 msgstr "Le produit a été supprimé."
 
-#: Controller/ProductsController.php:111
+#: Controller/ProductsController.php:112
 msgid "The product could not be deleted. Please, try again."
 msgstr "Le produit n'a pas pu être supprimé. Veuillez réessayer."
+
+#: Controller/ReviewsController.php:60;87
+msgid "The review has been saved."
+msgstr "L'évaluation a été enregistrée."
+
+#: Controller/ReviewsController.php:64;91
+msgid "The review could not be saved. Please, try again."
+msgstr "L'évaluation n'a pas pu être enregistrée. Veuillez réessayer."
+
+#: Controller/ReviewsController.php:111
+msgid "The review has been deleted."
+msgstr "L'évaluation a été supprimée."
+
+#: Controller/ReviewsController.php:113
+msgid "The review could not be deleted. Please, try again."
+msgstr "L'évaluation n'a pas pu être supprimée. Veuillez réessayer."
 
 #: Controller/UsersController.php:58;83
 msgid "The user has been saved."
@@ -119,6 +135,10 @@ msgstr "La liste ne peut pas être supprimée. Veuillez réessayer."
 #: Template/Products/edit.ctp:8
 #: Template/Products/index.ctp:9;29
 #: Template/Products/view.ctp:9;66
+#: Template/Reviews/add.ctp:8
+#: Template/Reviews/edit.ctp:8
+#: Template/Reviews/index.ctp:9;27
+#: Template/Reviews/view.ctp:9
 #: Template/Users/add.ctp:8
 #: Template/Users/edit.ctp:8
 #: Template/Users/index.ctp:9;25
@@ -150,6 +170,8 @@ msgstr "Ajouter développeur"
 #: Template/Files/edit.ctp:31
 #: Template/Products/add.ctp:28
 #: Template/Products/edit.ctp:34
+#: Template/Reviews/add.ctp:26
+#: Template/Reviews/edit.ctp:32
 #: Template/Users/add.ctp:23
 #: Template/Users/edit.ctp:29
 #: Template/Wishlists/add.ctp:25
@@ -165,6 +187,8 @@ msgstr "Soumettre"
 #: Template/Products/edit.ctp:10
 #: Template/Products/index.ctp:45
 #: Template/Products/view.ctp:78
+#: Template/Reviews/edit.ctp:10
+#: Template/Reviews/index.ctp:41
 #: Template/Users/edit.ctp:10
 #: Template/Users/index.ctp:41
 #: Template/Wishlists/edit.ctp:10
@@ -181,6 +205,9 @@ msgstr "Effacer"
 #: Template/Products/edit.ctp:12
 #: Template/Products/index.ctp:45
 #: Template/Products/view.ctp:11;78
+#: Template/Reviews/edit.ctp:12
+#: Template/Reviews/index.ctp:41
+#: Template/Reviews/view.ctp:11
 #: Template/Users/edit.ctp:12
 #: Template/Users/index.ctp:41
 #: Template/Users/view.ctp:11
@@ -205,6 +232,7 @@ msgid "New Developer"
 msgstr "Nouveau développeur"
 
 #: Template/Developers/index.ctp:14
+#: Template/Layout/default.ctp:27
 msgid "Developers"
 msgstr "Développeurs"
 
@@ -213,6 +241,7 @@ msgstr "Développeurs"
 #: Template/Files/view.ctp:74
 #: Template/Products/index.ctp:43
 #: Template/Products/view.ctp:76
+#: Template/Reviews/index.ctp:39
 #: Template/Users/index.ctp:39
 #: Template/Wishlists/index.ctp:39
 msgid "View"
@@ -223,6 +252,7 @@ msgstr "Vue"
 #: Template/Files/view.ctp:75
 #: Template/Products/index.ctp:44
 #: Template/Products/view.ctp:77
+#: Template/Reviews/index.ctp:40
 #: Template/Users/index.ctp:40
 #: Template/Wishlists/index.ctp:40
 msgid "Edit"
@@ -231,6 +261,7 @@ msgstr "modifier"
 #: Template/Developers/index.ctp:45
 #: Template/Files/index.ctp:57
 #: Template/Products/index.ctp:54
+#: Template/Reviews/index.ctp:49
 #: Template/Users/index.ctp:49
 #: Template/Wishlists/index.ctp:49
 msgid "first"
@@ -239,6 +270,7 @@ msgstr "premier"
 #: Template/Developers/index.ctp:46
 #: Template/Files/index.ctp:58
 #: Template/Products/index.ctp:55
+#: Template/Reviews/index.ctp:50
 #: Template/Users/index.ctp:50
 #: Template/Wishlists/index.ctp:50
 msgid "previous"
@@ -247,6 +279,7 @@ msgstr "précédent"
 #: Template/Developers/index.ctp:48
 #: Template/Files/index.ctp:60
 #: Template/Products/index.ctp:57
+#: Template/Reviews/index.ctp:52
 #: Template/Users/index.ctp:52
 #: Template/Wishlists/index.ctp:52
 msgid "next"
@@ -255,6 +288,7 @@ msgstr "prochain"
 #: Template/Developers/index.ctp:49
 #: Template/Files/index.ctp:61
 #: Template/Products/index.ctp:58
+#: Template/Reviews/index.ctp:53
 #: Template/Users/index.ctp:53
 #: Template/Wishlists/index.ctp:53
 msgid "last"
@@ -263,6 +297,7 @@ msgstr "dernier"
 #: Template/Developers/index.ctp:51
 #: Template/Files/index.ctp:63
 #: Template/Products/index.ctp:60
+#: Template/Reviews/index.ctp:55
 #: Template/Users/index.ctp:55
 #: Template/Wishlists/index.ctp:55
 msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
@@ -286,6 +321,7 @@ msgstr "Email"
 #: Template/Developers/view.ctp:28
 #: Template/Files/view.ctp:34;55
 #: Template/Products/view.ctp:36;61
+#: Template/Reviews/view.ctp:32
 #: Template/Users/view.ctp:32
 #: Template/Wishlists/view.ctp:32
 msgid "Id"
@@ -294,6 +330,7 @@ msgstr "Id"
 #: Template/Developers/view.ctp:32
 #: Template/Files/view.ctp:38;60
 #: Template/Products/view.ctp:40;64
+#: Template/Reviews/view.ctp:36
 #: Template/Users/view.ctp:36
 #: Template/Wishlists/view.ctp:36
 msgid "Created"
@@ -302,6 +339,7 @@ msgstr "Créé"
 #: Template/Developers/view.ctp:36
 #: Template/Files/view.ctp:42;61
 #: Template/Products/view.ctp:44;65
+#: Template/Reviews/view.ctp:40
 #: Template/Users/view.ctp:40
 #: Template/Wishlists/view.ctp:40
 msgid "Modified"
@@ -320,6 +358,10 @@ msgstr "Liste des fichiers"
 #: Template/Products/add.ctp:9
 #: Template/Products/edit.ctp:15
 #: Template/Products/view.ctp:12
+#: Template/Reviews/add.ctp:12
+#: Template/Reviews/edit.ctp:18
+#: Template/Reviews/index.ctp:13
+#: Template/Reviews/view.ctp:16
 #: Template/Wishlists/add.ctp:12
 #: Template/Wishlists/edit.ctp:18
 #: Template/Wishlists/index.ctp:13
@@ -333,6 +375,10 @@ msgstr "Liste des produits"
 #: Template/Files/view.ctp:15
 #: Template/Products/index.ctp:10
 #: Template/Products/view.ctp:13
+#: Template/Reviews/add.ctp:13
+#: Template/Reviews/edit.ctp:19
+#: Template/Reviews/index.ctp:14
+#: Template/Reviews/view.ctp:17
 #: Template/Wishlists/add.ctp:13
 #: Template/Wishlists/edit.ctp:19
 #: Template/Wishlists/index.ctp:14
@@ -355,6 +401,7 @@ msgid "New File"
 msgstr "Nouveau fichier"
 
 #: Template/Files/index.ctp:16
+#: Template/Layout/default.ctp:31
 msgid "Files"
 msgstr "Des dossiers"
 
@@ -400,6 +447,25 @@ msgstr "Utilisé"
 msgid "Developer Id"
 msgstr "ID du développeur"
 
+#: Template/Layout/default.ctp:25
+msgid "Home"
+msgstr "Accueil"
+
+#: Template/Layout/default.ctp:26
+#: Template/Products/index.ctp:18
+msgid "Products"
+msgstr "Des produits"
+
+#: Template/Layout/default.ctp:28
+#: Template/Users/index.ctp:14
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: Template/Layout/default.ctp:29
+#: Template/Reviews/index.ctp:18
+msgid "Reviews"
+msgstr "Avis"
+
 #: Template/Layout/error.ctp:35
 msgid "Error"
 msgstr "Erreur"
@@ -436,10 +502,6 @@ msgstr "Ajouter un produit"
 msgid "Edit Product"
 msgstr "Modifier le produit"
 
-#: Template/Products/index.ctp:18
-msgid "Products"
-msgstr "Des produits"
-
 #: Template/Products/index.ctp:46
 msgid "Add to Wishlist"
 msgstr "Ajouter à la liste de souhaits"
@@ -453,6 +515,7 @@ msgid "Developer"
 msgstr "Développeur"
 
 #: Template/Products/view.ctp:53
+#: Template/Reviews/view.ctp:45
 msgid "Description"
 msgstr "La description"
 
@@ -468,6 +531,16 @@ msgstr "Identifiant d'utilisateur"
 msgid "Product Id"
 msgstr "Id. Produit"
 
+#: Template/Reviews/add.ctp:9
+#: Template/Reviews/edit.ctp:15
+#: Template/Reviews/view.ctp:12
+msgid "List Reviews"
+msgstr "Liste des commentaires"
+
+#: Template/Reviews/add.ctp:10
+#: Template/Reviews/edit.ctp:16
+#: Template/Reviews/index.ctp:11
+#: Template/Reviews/view.ctp:14
 #: Template/Users/add.ctp:9
 #: Template/Users/edit.ctp:15
 #: Template/Users/view.ctp:12
@@ -478,15 +551,10 @@ msgstr "Id. Produit"
 msgid "List Users"
 msgstr "Liste des utilisateurs"
 
-#: Template/Users/add.ctp:15
-msgid "Add User"
-msgstr "Ajouter un utilisateur"
-
-#: Template/Users/edit.ctp:21
-#: Template/Users/view.ctp:10
-msgid "Edit User"
-msgstr "Modifier l'utilisateur"
-
+#: Template/Reviews/add.ctp:11
+#: Template/Reviews/edit.ctp:17
+#: Template/Reviews/index.ctp:12
+#: Template/Reviews/view.ctp:15
 #: Template/Users/index.ctp:10
 #: Template/Users/view.ctp:13
 #: Template/Wishlists/add.ctp:11
@@ -496,9 +564,42 @@ msgstr "Modifier l'utilisateur"
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
-#: Template/Users/index.ctp:14
-msgid "Users"
-msgstr "Utilisateurs"
+#: Template/Reviews/add.ctp:19
+msgid "Add Review"
+msgstr "Ajouter un avis"
+
+#: Template/Reviews/edit.ctp:25
+#: Template/Reviews/view.ctp:10
+msgid "Edit Review"
+msgstr "Modifier la revue"
+
+#: Template/Reviews/index.ctp:10
+#: Template/Reviews/view.ctp:13
+msgid "New Review"
+msgstr "Nouvelle revue"
+
+#: Template/Reviews/view.ctp:11
+msgid "Delete Review"
+msgstr "Supprimer l'examen"
+
+#: Template/Reviews/view.ctp:24
+#: Template/Wishlists/view.ctp:24
+msgid "User"
+msgstr "Utilisateur"
+
+#: Template/Reviews/view.ctp:28
+#: Template/Wishlists/view.ctp:28
+msgid "Product"
+msgstr "Produit"
+
+#: Template/Users/add.ctp:15
+msgid "Add User"
+msgstr "Ajouter un utilisateur"
+
+#: Template/Users/edit.ctp:21
+#: Template/Users/view.ctp:10
+msgid "Edit User"
+msgstr "Modifier l'utilisateur"
 
 #: Template/Users/login.ctp:7
 msgid "Please enter your username and password"
@@ -522,7 +623,7 @@ msgstr "Mot de passe"
 
 #: Template/Users/view.ctp:44
 msgid "IsAdmin"
-msgstr "estAdmin"
+msgstr "IsAdmin"
 
 #: Template/Wishlists/add.ctp:19
 msgid "Add Wishlist"
@@ -539,13 +640,5 @@ msgstr "Liste de voeux"
 
 #: Template/Wishlists/view.ctp:11
 msgid "Delete Wishlist"
-msgstr "Supprimer la liste de souhait"
-
-#: Template/Wishlists/view.ctp:24
-msgid "User"
-msgstr "Utilisateur"
-
-#: Template/Wishlists/view.ctp:28
-msgid "Product"
-msgstr "Produit"
+msgstr "Supprimer la liste de souhaits"
 

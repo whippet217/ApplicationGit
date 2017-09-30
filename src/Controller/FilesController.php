@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Files Controller
@@ -35,7 +36,7 @@ class FilesController extends AppController {
     public function view($id = null) {
         $file = $this->Files->get($id, [
             'contain' => ['Products']
-        ]);
+            ]);
 
         $this->set('file', $file);
         $this->set('_serialize', ['file']);
@@ -86,7 +87,7 @@ class FilesController extends AppController {
     public function edit($id = null) {
         $file = $this->Files->get($id, [
             'contain' => ['Products']
-        ]);
+            ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $file = $this->Files->patchEntity($file, $this->request->getData());
             if ($this->Files->save($file)) {
@@ -118,6 +119,16 @@ class FilesController extends AppController {
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+    public function beforeFilter(Event $event) {
+
+        if(!$this->Auth->user('isAdmin')){
+            parent::beforeFilter($event);
+            $this->Auth->deny(array('index', 'view'));
+            $this->redirect($this->referer());
+        }
+
     }
 
 }

@@ -53,13 +53,12 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
                     'authorize' => ['Controller'],
                     'loginRedirect' => [
-                        'controller' => 'Pages',
+                        'controller' => 'Home',
                         'action' => 'index'
                     ],
                     'logoutRedirect' => [
-                        'controller' => 'Pages',
-                        'action' => 'display',
-                        'home'
+                        'controller' => 'Home',
+                        'action' => 'index',
                     ]
                 ]);
         
@@ -104,7 +103,7 @@ class AppController extends Controller
     
     public function isAuthorized($user) {
         // Admin can access every action
-        if ($user['isAdmin'] === true) {
+        if ($user['isAdmin']) {
             return true;
         }
         // Default deny
