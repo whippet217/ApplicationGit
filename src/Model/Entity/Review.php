@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property int $products_id
- * @property string $Description
+ * @property string $description
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -31,7 +31,7 @@ class Review extends Entity
     protected $_accessible = [
         'user_id' => true,
         'products_id' => true,
-        'Description' => true,
+        'description' => true,
         'created' => true,
         'modified' => true,
         'user' => true,

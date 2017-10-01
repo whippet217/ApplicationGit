@@ -20,13 +20,11 @@
             <div class="col-lg-12 col-md-3 col-sm-4">
                 <div class="list-group table-of-contents">
                     <?php if ($loggedUser !== null): ?>
-                        <?php if ($loggedUser['isAdmin']): ?>
-                            <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'], array('class' => 'list-group-item')) ?>
-                            <?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add'], array('class' => 'list-group-item')) ?>
-                        <?php endif; ?>
                         <?= $this->Html->link(__('New Review'), ['action' => 'add'], array('class' => 'list-group-item')) ?>
                     <?php endif; ?>
-                    
+                    <?php if ($loggedUser['isAdmin']): ?>
+                        <?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add'], array('class' => 'list-group-item')) ?>
+                    <?php endif; ?>
                     <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'], array('class' => 'list-group-item')) ?>
                     <?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index'], array('class' => 'list-group-item')) ?>
                 </div>
@@ -35,6 +33,7 @@
     </div>
 
 </nav>
+
 <div class="reviews index large-9 medium-8 columns content">
     <h2><?= __('Reviews') ?></h2>
     <table cellpadding="0" cellspacing="0" class="table table-striped table-hover">
@@ -52,17 +51,14 @@
             <?php foreach ($reviews as $review): ?>
             <tr>
                 <td><?= $this->Number->format($review->id) ?></td>
-                
-                <td><?= $review->has('user') ? $this->Html->link($review->user->username, ['controller' => 'Users', 'action' => 'view', $review->user->id]) : '' ?></td>
+                <td><?= $review->has('user') ? $this->Html->link($review->user->id, ['controller' => 'Users', 'action' => 'view', $review->user->id]) : '' ?></td>
                 <td><?= $review->has('product') ? $this->Html->link($review->product->name, ['controller' => 'Products', 'action' => 'view', $review->product->id]) : '' ?></td>
                 <td><?= h($review->created) ?></td>
                 <td><?= h($review->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $review->id]) ?>
-                    <?php if($loggedUser !== null && ($loggedUser['id'] == $review->user_id || $loggedUser['isAdmin']) ) : ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $review->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $review->id], ['confirm' => __('Are you sure you want to delete # {0}?', $review->id)]) ?>
-                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

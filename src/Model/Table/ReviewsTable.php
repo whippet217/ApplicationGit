@@ -64,9 +64,9 @@ class ReviewsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('Description')
-            ->requirePresence('Description', 'create')
-            ->notEmpty('Description');
+            ->scalar('description')
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         return $validator;
     }
@@ -90,5 +90,4 @@ class ReviewsTable extends Table
     {
         return $this->exists(['id' => $reviewId, 'user_id' => $userId]);
     }
-    
 }

@@ -29,7 +29,6 @@
             </div>
         </div>
     </div>
-
 </nav>
 
 <div class="reviews form large-9 medium-8 columns content">
@@ -39,7 +38,7 @@
         <?php
             //echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('products_id', ['options' => $products]);
-            echo $this->Form->control('Description');
+            echo $this->Form->control('description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-primary')) ?>

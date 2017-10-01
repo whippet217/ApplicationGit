@@ -39,8 +39,8 @@
             </div>
         </div>
     </div>
-
 </nav>
+
 <div class="reviews view large-9 medium-8 columns content">
     <h2><?= __('Reviews') ?></h2>
     <table class="vertical-table table-striped table-hover">
@@ -67,6 +67,6 @@
     </table>
     <div class="row">
         <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($review->Description)); ?>
+        <?= $this->Text->autoParagraph(h($review->description)); ?>
     </div>
 </div>
