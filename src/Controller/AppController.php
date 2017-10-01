@@ -29,7 +29,7 @@ use Cake\I18n\I18n;
  */
 class AppController extends Controller
 {
-    public function changeLang($lang = 'en_US') {
+    public function changeLang($lang = 'fr_CA') {
         I18n::locale($lang);
         $this->request->session()->write('Config.language', $lang);
         return $this->redirect($this->request->referer());
