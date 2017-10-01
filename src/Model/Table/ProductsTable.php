@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\DevelopersTable|\Cake\ORM\Association\BelongsTo $Developers
  * @property \App\Model\Table\WishlistsTable|\Cake\ORM\Association\HasMany $Wishlists
+ * @property |\Cake\ORM\Association\BelongsToMany $Files
  *
  * @method \App\Model\Entity\Product get($primaryKey, $options = [])
  * @method \App\Model\Entity\Product newEntity($data = null, array $options = [])
@@ -47,6 +48,11 @@ class ProductsTable extends Table
         ]);
         $this->hasMany('Wishlists', [
             'foreignKey' => 'product_id'
+        ]);
+        $this->belongsToMany('Files', [
+            'foreignKey' => 'product_id',
+            'targetForeignKey' => 'file_id',
+            'joinTable' => 'products_files'
         ]);
     }
 

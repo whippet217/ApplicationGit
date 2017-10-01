@@ -42,7 +42,6 @@
         </div>
     </div>
 </nav>
-
 <div class="products view large-9 medium-8 columns content">
     <h2><?= h($product->name) ?></h2>
     <table class="vertical-table table table-striped table-hover">

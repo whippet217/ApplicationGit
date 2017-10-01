@@ -26,11 +26,11 @@ class ProductsFixture extends TestFixture
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
-            'idDev_Constraint' => ['type' => 'index', 'columns' => ['developer_id'], 'length' => []],
+            'developer_id' => ['type' => 'index', 'columns' => ['developer_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'idDev_Constraint' => ['type' => 'foreign', 'columns' => ['developer_id'], 'references' => ['developers', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'products_ibfk_1' => ['type' => 'foreign', 'columns' => ['developer_id'], 'references' => ['developers', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -52,8 +52,8 @@ class ProductsFixture extends TestFixture
             'used' => 1,
             'developer_id' => 1,
             'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-            'created' => '2017-09-29 02:34:29',
-            'modified' => '2017-09-29 02:34:29'
+            'created' => '2017-10-01 21:22:43',
+            'modified' => '2017-10-01 21:22:43'
         ],
     ];
 }
