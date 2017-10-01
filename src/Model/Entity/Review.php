@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  */
 class Review extends Entity
 {
-
+    
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
