@@ -4,36 +4,48 @@
  * @var \App\Model\Entity\Product $product
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <?php if ($loggedUser !== null): ?>
-            
-            <?php if ($loggedUser['isAdmin']): ?>
-                
-                <li><?= $this->Html->link(__('New Product'), ['action' => 'add']) ?> </li>
-                <li><?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id]) ?> </li>
-                <li><?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?> </li>
-                <li><?= $this->Html->link(__('New Developer'), ['controller' => 'Developers', 'action' => 'add']) ?> </li>
-                
-            <?php endif; ?>
-            
-            <li><?= $this->Html->link(__('New Wishlist'), ['controller' => 'Wishlists', 'action' => 'add']) ?> </li>
-            
-        <?php endif; ?>
-        
-        <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('List Wishlists'), ['controller' => 'Wishlists', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('List Reviews'), ['controller' => 'Reviews', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Developers'), ['controller' => 'Developers', 'action' => 'index']) ?> </li>
-        
-        
-        
-    </ul>
+<nav class="large-3 medium-4 columns">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1><?= __('Actions') ?></h1>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-6">
+                <div class="sponsor">
+                    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootswatchcom" id="_carbonads_js"></script>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-3 col-sm-4">
+                <div class="list-group table-of-contents">
+                <?php if ($loggedUser !== null): ?>
+                    
+                    <?php if ($loggedUser['isAdmin']): ?>
+                        
+                        <?= $this->Html->link(__('New Product'), ['action' => 'add'], array('class' => 'list-group-item')) ?>
+                        <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id], array('class' => 'list-group-item')) ?>
+                        <?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], array('class' => 'list-group-item'), ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
+                        <?= $this->Html->link(__('New Developer'), ['controller' => 'Developers', 'action' => 'add'], array('class' => 'list-group-item')) ?>
+                        
+                    <?php endif; ?>
+                    
+                    <?= $this->Html->link(__('New Wishlist'), ['controller' => 'Wishlists', 'action' => 'add'], array('class' => 'list-group-item')) ?>
+                    
+                <?php endif; ?>
+                <?= $this->Html->link(__('List Products'), ['action' => 'index'], array('class' => 'list-group-item')) ?>
+                <?= $this->Html->link(__('List Wishlists'), ['controller' => 'Wishlists', 'action' => 'index'], array('class' => 'list-group-item')) ?>
+                <?= $this->Html->link(__('List Reviews'), ['controller' => 'Reviews', 'action' => 'index'], array('class' => 'list-group-item')) ?>
+                <?= $this->Html->link(__('List Developers'), ['controller' => 'Developers', 'action' => 'index'], array('class' => 'list-group-item')) ?>                
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
+
 <div class="products view large-9 medium-8 columns content">
-    <h3><?= h($product->name) ?></h3>
-    <table class="vertical-table">
+    <h2><?= h($product->name) ?></h2>
+    <table class="vertical-table table table-striped table-hover">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($product->name) ?></td>
@@ -61,6 +73,10 @@
         <tr>
             <th scope="row"><?= __('Used') ?></th>
             <td><?= $product->used ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= $product->description ?></td>
         </tr>
     </table>
     <div class="row">

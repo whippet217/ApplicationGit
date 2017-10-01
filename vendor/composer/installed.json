@@ -19,7 +19,7 @@
             "composer/composer": "1.0.*@dev",
             "phpunit/phpunit": "^4.8|^5.7|^6.0"
         },
-        "time": "2017-03-21 13:48:47",
+        "time": "2017-03-21T13:48:47+00:00",
         "type": "composer-installer",
         "extra": {
             "class": "Cake\\Composer\\Installer\\PluginInstaller"
@@ -60,7 +60,7 @@
         "require": {
             "php": "^5.6|^7.0"
         },
-        "time": "2017-01-20 05:00:11",
+        "time": "2017-01-20T05:00:11+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -108,7 +108,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-08-06 14:39:51",
+        "time": "2016-08-06T14:39:51+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -170,7 +170,7 @@
             "phpunit/phpunit": "^5.7.16 || ^6.0.8",
             "zendframework/zend-coding-standard": "~1.0"
         },
-        "time": "2017-09-13 14:47:08",
+        "time": "2017-09-13T14:47:08+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -214,7 +214,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-10-10 12:19:37",
+        "time": "2016-10-10T12:19:37+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -270,7 +270,7 @@
             "phpstan/phpstan": "^0.6.4",
             "phpunit/phpunit": "<6.0"
         },
-        "time": "2017-04-27 01:27:49",
+        "time": "2017-04-27T01:27:49+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -354,7 +354,7 @@
             "ext-openssl": "To use Security::encrypt() or have secure CSRF token generation.",
             "lib-ICU": "The intl PHP library, to use Text::transliterate() or Text::slug()"
         },
-        "time": "2017-09-27 01:53:08",
+        "time": "2017-09-27T01:53:08+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -413,7 +413,7 @@
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2017-06-14 15:44:48",
+        "time": "2017-06-14T15:44:48+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -477,7 +477,7 @@
         "suggest": {
             "symfony/console": "For validating YAML files using the lint command"
         },
-        "time": "2017-07-29 21:54:42",
+        "time": "2017-07-29T21:54:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -535,7 +535,7 @@
         "require-dev": {
             "symfony/http-kernel": "~2.8|~3.0"
         },
-        "time": "2017-09-01 13:23:39",
+        "time": "2017-09-01T13:23:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -605,7 +605,7 @@
             "symfony/filesystem": "",
             "symfony/process": ""
         },
-        "time": "2017-09-06 16:40:18",
+        "time": "2017-09-06T16:40:18+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -656,7 +656,7 @@
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2017-07-29 21:54:42",
+        "time": "2017-07-29T21:54:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -720,7 +720,7 @@
         "suggest": {
             "symfony/yaml": "To use the yaml reference dumper"
         },
-        "time": "2017-09-04 16:28:07",
+        "time": "2017-09-04T16:28:07+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -777,7 +777,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.8.26|^5.0"
         },
-        "time": "2017-06-05 13:30:19",
+        "time": "2017-06-05T13:30:19+00:00",
         "bin": [
             "bin/phinx"
         ],
@@ -850,7 +850,7 @@
         "suggest": {
             "cakephp/bake": "Required if you want to generate migrations."
         },
-        "time": "2017-08-05 13:16:31",
+        "time": "2017-08-05T13:16:31+00:00",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -902,7 +902,7 @@
             "josegonzalez/dotenv": "For loading of .env",
             "m1/vars": "For loading of configs"
         },
-        "time": "2016-10-06 19:31:28",
+        "time": "2016-10-06T19:31:28+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -958,7 +958,7 @@
             "satooshi/php-coveralls": "1.*",
             "squizlabs/php_codesniffer": "2.*"
         },
-        "time": "2017-01-03 01:04:05",
+        "time": "2017-01-03T01:04:05+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1010,7 +1010,7 @@
         "require-dev": {
             "phpunit/phpunit": "*"
         },
-        "time": "2017-08-29 18:23:54",
+        "time": "2017-08-29T18:23:54+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1067,7 +1067,7 @@
             "cakephp/cakephp-codesniffer": "^3.0",
             "phpunit/phpunit": "~5.7 | ~6.0"
         },
-        "time": "2017-09-15 12:24:02",
+        "time": "2017-09-15T12:24:02+00:00",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -1116,7 +1116,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
         },
-        "time": "2017-09-19 22:47:14",
+        "time": "2017-09-19T22:47:14+00:00",
         "bin": [
             "bin/phpcs",
             "bin/phpcbf"
@@ -1167,7 +1167,7 @@
         "require-dev": {
             "phpunit/phpunit": "<6.0"
         },
-        "time": "2017-07-28 01:42:31",
+        "time": "2017-07-28T01:42:31+00:00",
         "type": "phpcodesniffer-standard",
         "installation-source": "dist",
         "autoload": {
@@ -1213,7 +1213,7 @@
         "require-dev": {
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2014-01-12 16:20:24",
+        "time": "2014-01-12T16:20:24+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1262,7 +1262,7 @@
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2017-07-29 21:54:42",
+        "time": "2017-07-29T21:54:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1313,7 +1313,7 @@
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2017-07-29 21:54:42",
+        "time": "2017-07-29T21:54:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1364,7 +1364,7 @@
         "require": {
             "php": ">=5.3"
         },
-        "time": "2015-10-13 18:44:15",
+        "time": "2015-10-13T18:44:15+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1413,7 +1413,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.5"
         },
-        "time": "2017-06-18 15:11:04",
+        "time": "2017-06-18T15:11:04+00:00",
         "bin": [
             "bin/jsonlint"
         ],
@@ -1461,7 +1461,7 @@
         "require": {
             "php": ">=5.3"
         },
-        "time": "2017-03-18 11:32:45",
+        "time": "2017-03-18T11:32:45+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1517,7 +1517,7 @@
             "phpdocumentor/phpdocumentor": "^2.7",
             "phpunit/phpunit": "^4.8.22"
         },
-        "time": "2017-05-16 21:06:09",
+        "time": "2017-05-16T21:06:09+00:00",
         "bin": [
             "bin/validate-json"
         ],
@@ -1584,7 +1584,7 @@
             "phpunit/phpunit": "^4.5 || ^5.0.5",
             "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
         },
-        "time": "2017-04-03 19:08:52",
+        "time": "2017-04-03T19:08:52+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1647,7 +1647,7 @@
             "phpunit/phpunit": "^4.5 || ^5.0.5",
             "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
         },
-        "time": "2016-08-30 16:08:34",
+        "time": "2016-08-30T16:08:34+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1717,7 +1717,7 @@
         "suggest": {
             "symfony/process": "This is necessary to reliably check whether openssl_x509_parse is vulnerable on older php versions, but can be ignored on PHP 5.5.6+"
         },
-        "time": "2017-09-11 07:24:36",
+        "time": "2017-09-11T07:24:36+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1789,7 +1789,7 @@
             "ext-zip": "Enabling the zip extension allows you to unzip archives",
             "ext-zlib": "Allow gzip compression of HTTP requests"
         },
-        "time": "2017-09-11 14:59:26",
+        "time": "2017-09-11T14:59:26+00:00",
         "bin": [
             "bin/composer"
         ],
@@ -1859,7 +1859,7 @@
         "suggest": {
             "ext-sqlite": "DebugKit needs to store panel data in a database. SQLite is simple and easy to use."
         },
-        "time": "2017-08-29 07:49:35",
+        "time": "2017-08-29T07:49:35+00:00",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -1916,7 +1916,7 @@
             "phpunit/phpunit": "3.7.*",
             "squizlabs/php_codesniffer": "1.*"
         },
-        "time": "2014-04-08 15:00:19",
+        "time": "2014-04-08T15:00:19+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1962,7 +1962,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2015-04-20 18:58:01",
+        "time": "2015-04-20T18:58:01+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2003,7 +2003,7 @@
         "require-dev": {
             "phpunit/phpunit": "@stable"
         },
-        "time": "2014-10-24 07:27:01",
+        "time": "2014-10-24T07:27:01+00:00",
         "type": "project",
         "installation-source": "dist",
         "autoload": {
@@ -2039,7 +2039,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0|~5.0"
         },
-        "time": "2017-09-02 17:10:46",
+        "time": "2017-09-02T17:10:46+00:00",
         "bin": [
             "bin/php-parse"
         ],
@@ -2100,7 +2100,7 @@
             "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
             "ext-symfony_debug": ""
         },
-        "time": "2017-08-27 14:52:21",
+        "time": "2017-08-27T14:52:21+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2176,7 +2176,7 @@
             "ext-readline": "Enables support for arrow-key history navigation, and showing and manipulating command history.",
             "hoa/console": "A pure PHP readline implementation. You'll want this if your PHP install doesn't already support readline or libedit."
         },
-        "time": "2017-07-29 19:30:02",
+        "time": "2017-07-29T19:30:02+00:00",
         "bin": [
             "bin/psysh"
         ],
@@ -2213,6 +2213,59 @@
             "console",
             "interactive",
             "shell"
+        ]
+    },
+    {
+        "name": "twbs/bootstrap",
+        "version": "v3.3.7",
+        "version_normalized": "3.3.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+            "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+            "shasum": ""
+        },
+        "replace": {
+            "twitter/bootstrap": "self.version"
+        },
+        "time": "2016-07-25T15:51:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Thornton",
+                "email": "jacobthornton@gmail.com"
+            },
+            {
+                "name": "Mark Otto",
+                "email": "markdotto@gmail.com"
+            }
+        ],
+        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+        "homepage": "http://getbootstrap.com",
+        "keywords": [
+            "JS",
+            "css",
+            "framework",
+            "front-end",
+            "less",
+            "mobile-first",
+            "responsive",
+            "web"
         ]
     }
 ]
