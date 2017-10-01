@@ -4,17 +4,34 @@
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <?php if ($loggedUser['isAdmin']): ?>
-            <li class="heading"><?= __('Actions') ?></li>
-            <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <?php endif; ?>
-    </ul>
+<?php if ($loggedUser['isAdmin']): ?>
+<nav class="large-3 medium-4 columns">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1><?= __('Actions') ?></h1>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-6">
+                <div class="sponsor">
+                    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootswatchcom" id="_carbonads_js"></script>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-3 col-sm-4">
+                <div class="list-group table-of-contents">
+                        <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'], array('class' => 'list-group-item')) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </nav>
+<?php endif; ?>
+
 <div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <h2><?= __('Users') ?></h2>
+    <table cellpadding="0" cellspacing="0" class="table table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>

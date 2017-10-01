@@ -74,10 +74,6 @@
             <th scope="row"><?= __('Used') ?></th>
             <td><?= $product->used ? __('Yes') : __('No'); ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= $product->description ?></td>
-        </tr>
     </table>
     <div class="row">
         <h4><?= __('Description') ?></h4>

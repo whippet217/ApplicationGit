@@ -35,7 +35,7 @@
 
 <div class="developers view large-9 medium-8 columns content">
     <h2><?= h($developer->name) ?></h2>
-    <table class="vertical-table">
+    <table class="vertical-table table table-striped table-hover">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($developer->name) ?></td>

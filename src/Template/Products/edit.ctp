@@ -41,7 +41,7 @@
             echo $this->Form->control('console', ['options' => ['PC', 'PS4', 'XBOX ONE']]);
             echo $this->Form->control('used');
             echo $this->Form->control('developer_id', ['options' => $developers]);
-            echo $this->Form->control('description');
+            //echo $this->Form->control('description');
         ?>
     <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>

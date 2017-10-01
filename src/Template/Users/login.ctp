@@ -6,6 +6,6 @@
         <legend><?= __('Please enter your username and password') ?></legend>
         <?= $this->Form->control('username') ?>
         <?= $this->Form->control('password') ?>
-<?= $this->Form->button(__('Login')); ?>
+<?= $this->Form->button(__('Login'), array('class' => 'btn btn-primary')); ?>
 <?= $this->Form->end() ?>
 <!-- </div> -->

@@ -37,14 +37,14 @@
 
 <div class="products form large-9 medium-8 columns content">
     <?= $this->Form->create($product) ?>
+    <fieldset>
         <h2><?= __('Add Product') ?></h2>
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('console', ['options' => ['PC', 'PS4', 'XBOX ONE']]);
             echo $this->Form->control('used');
-            echo $this->Form->control('developer_id', ['options' => $developers]);
-            echo $this->Form->control('description');
-        ?>
+            echo $this->Form->control('developer_id', ['options' => $developers]); ?>
+    </fieldset>
     <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>
