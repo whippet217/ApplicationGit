@@ -41,6 +41,7 @@ class ProductsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Translate', ['fields' => ['description']]);
 
         $this->belongsTo('Developers', [
             'foreignKey' => 'developer_id',

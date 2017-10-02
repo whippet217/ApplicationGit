@@ -8,12 +8,15 @@
     
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-    <?= $this->Html->css('bootstrap.css') ?>
-    <?= $this->Html->script('bootstrap.js') ?>
+    <?= $this->Html->script('jquery-3.2.1.min.js'); ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+
     
     <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->fetch('css') ?>
+    
 </head>
 
 <body>
@@ -39,34 +42,49 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US']) ?></li>
-                        <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA']) ?></li>
-                        <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE']) ?></li>
                         
-                        <?php if($loggedUser !== null) { ?>
-                        
-                        <li><?= $this->Html->link('Logged in as ' . h($loggedUser['username']), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']]) ?></li>
-                        <li><?= $this->HTML->Link('Wishlist', ['controller' => 'wishlists']) ?></li>
-                        <li id="Logout"><?= $this->Html->link('Logout', ['controller'=>'users', 'action' => 'logout']); ?></li>
-                        
-                        <?php } else { ?>
-                        
-                        <li id="Login"><?= $this->Html->link('Login', ['controller'=>'users', 'action' => 'login']); ?></li>
-                        <li id="Register"><?= $this->Html->link('Register', ['controller'=>'users', 'action' => 'add']); ?></li>
-                        
-                        <?php } ?>
-                    </ul>
-                </div>
+                        <!-- <li class="dropdown show">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langages <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li> -->
+                    
+                    
+                    <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US']) ?></li>
+                    <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA']) ?></li>
+                    <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE']) ?></li>
+                    
+                    <?php if($loggedUser !== null) { ?>
+                    
+                    <li><?= $this->Html->link('Logged in as ' . h($loggedUser['username']), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']]) ?></li>
+                    <li><?= $this->HTML->Link('Wishlist', ['controller' => 'wishlists']) ?></li>
+                    <li id="Logout"><?= $this->Html->link('Logout', ['controller'=>'users', 'action' => 'logout']); ?></li>
+                    
+                    <?php } else { ?>
+                    
+                    <li id="Login"><?= $this->Html->link('Login', ['controller'=>'users', 'action' => 'login']); ?></li>
+                    <li id="Register"><?= $this->Html->link('Register', ['controller'=>'users', 'action' => 'add']); ?></li>
+                    
+                    <?php } ?>
+                </ul>
             </div>
         </div>
-    </nav>
-
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
     </div>
-    
-    <footer>
-    </footer>
+</nav>
+
+<?= $this->Flash->render() ?>
+<div class="container clearfix">
+    <?= $this->fetch('content') ?>
+</div>
+
+<footer>
+</footer>
 </body>
 </html>

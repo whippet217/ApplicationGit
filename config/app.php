@@ -220,7 +220,7 @@ return [
     'Datasources' => [
         'default' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'driver' => 'Cake\Database\Driver\Sqlite',
             'persistent' => false,
             'host' => 'localhost',
             /**
@@ -229,9 +229,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'gamestore',
+            //'username' => 'root',
+            //'password' => '',
+            'database' => ROOT . DS . 'sqlite' . DS . 'default.sqlite',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
@@ -265,13 +265,13 @@ return [
          */
         'test' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'driver' => 'Cake\Database\Driver\Sqlite',
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
+            //'username' => 'root',
+            //'password' => '',
+            'database' => ROOT . DS . 'sqlite' . DS . 'test.sqlite',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 29 sep. 2017 à 20:27
+-- Généré le :  lun. 02 oct. 2017 à 00:27
 -- Version du serveur :  5.7.17
--- Version de PHP :  5.6.30
+-- Version de PHP :  7.1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,7 @@ CREATE TABLE `developers` (
 --
 
 INSERT INTO `developers` (`id`, `name`, `email`, `created`, `modified`) VALUES
-(1, 'Bethesda', 'Bethesda@gmail.com', '2017-09-29 18:12:22', '2017-09-29 18:12:32');
+(1, 'Bethesda', 'Bethesda@gmail.com', '2017-09-29 18:12:22', '2017-10-01 02:57:15');
 
 -- --------------------------------------------------------
 
@@ -62,12 +62,28 @@ CREATE TABLE `files` (
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `files`
+-- Structure de la table `i18n`
 --
 
-INSERT INTO `files` (`id`, `name`, `path`, `created`, `modified`, `status`) VALUES
-(1, 'Koala.jpg', 'Files/', '2017-09-29 18:22:51', '2017-09-29 18:22:51', 1);
+DROP TABLE IF EXISTS `i18n`;
+CREATE TABLE `i18n` (
+  `id` int(11) NOT NULL,
+  `locale` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `foreign_key` int(10) NOT NULL,
+  `field` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `i18n`
+--
+
+INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) VALUES
+(1, 'fr_CA', 'Products', 4, 'description', 'Ceci est un jeu.');
 
 -- --------------------------------------------------------
 
@@ -82,6 +98,7 @@ CREATE TABLE `products` (
   `console` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `used` tinyint(1) DEFAULT NULL,
   `developer_id` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -90,8 +107,8 @@ CREATE TABLE `products` (
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `console`, `used`, `developer_id`, `created`, `modified`) VALUES
-(1, 'Test', 'PC', 0, 1, '2017-09-29 18:12:57', '2017-09-29 18:12:57');
+INSERT INTO `products` (`id`, `name`, `console`, `used`, `developer_id`, `description`, `created`, `modified`) VALUES
+(4, 'Test', '2', 0, 1, 'This is a game.', '2017-10-01 21:35:35', '2017-10-01 21:35:53');
 
 -- --------------------------------------------------------
 
@@ -106,12 +123,28 @@ CREATE TABLE `products_files` (
   `file_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `products_files`
+-- Structure de la table `reviews`
 --
 
-INSERT INTO `products_files` (`id`, `product_id`, `file_id`) VALUES
-(1, 1, 1);
+DROP TABLE IF EXISTS `reviews`;
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `user_id`, `products_id`, `description`, `created`, `modified`) VALUES
+(8, 3, 1, 'This is a test', '2017-10-01 20:48:45', '2017-10-01 20:48:45');
 
 -- --------------------------------------------------------
 
@@ -136,7 +169,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `isAdmin`, `username`, `password`, `email`, `created`, `modified`) VALUES
 (1, 1, 'admin', '$2y$10$OGVKt6z4SJnLQJUCTHDbueyg7E3o0J2kkpQy5.AddVZgP4dBLefMO', 'admin@gmail.com', '2017-09-29 18:05:08', '2017-09-29 18:05:08'),
-(2, 0, 'dofus_master', '$2y$10$3QUbJzlhuET6tadYMGxmFezmbmDNbVyYpav0ViNqOgYDyVhkIDsSO', 'dofus@gmail.com', '2017-09-29 18:05:46', '2017-09-29 18:05:46');
+(2, 0, 'dofus_master', '$2y$10$3QUbJzlhuET6tadYMGxmFezmbmDNbVyYpav0ViNqOgYDyVhkIDsSO', 'dofus@gmail.com', '2017-09-29 18:05:46', '2017-09-29 18:05:46'),
+(3, 0, 'test', '$2y$10$U9WaKZqoJnmDuYuJ7vF5OeDrog85YUyA.t6fnHj2mkqiyPVPUzM0q', 'test@gmail.com', '2017-09-30 01:03:04', '2017-09-30 01:03:04');
 
 -- --------------------------------------------------------
 
@@ -170,6 +204,14 @@ ALTER TABLE `files`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `i18n`
+--
+ALTER TABLE `i18n`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `I18N_LOCALE_FIELD` (`locale`,`model`(100),`foreign_key`,`field`(100)),
+  ADD KEY `I18N_FIELD` (`model`(100),`foreign_key`,`field`(100));
+
+--
 -- Index pour la table `products`
 --
 ALTER TABLE `products`
@@ -183,6 +225,14 @@ ALTER TABLE `products_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`),
   ADD KEY `file_id` (`file_id`);
+
+--
+-- Index pour la table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `products_id` (`products_id`);
 
 --
 -- Index pour la table `users`
@@ -211,22 +261,32 @@ ALTER TABLE `developers`
 -- AUTO_INCREMENT pour la table `files`
 --
 ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `i18n`
+--
+ALTER TABLE `i18n`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `products_files`
 --
 ALTER TABLE `products_files`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `wishlists`
 --
@@ -248,6 +308,13 @@ ALTER TABLE `products`
 ALTER TABLE `products_files`
   ADD CONSTRAINT `products_files_ibfk_1` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `products_files_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `wishlists`
